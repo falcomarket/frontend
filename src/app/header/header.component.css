@@ -1,0 +1,21 @@
+nav {
+    height: 100%
+}
+.side-nav-button {
+    display: flex;
+    background: rgb(134, 176, 240);
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor:pointer;
+    border-radius: 30%
+}
+.side-nav-button:hover{
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 30%;
+}
+.nav-item {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: medium;
+    
+}

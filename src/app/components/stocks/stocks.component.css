@@ -1,0 +1,59 @@
+/* Style général du formulaire */
+.form-container {
+    max-width: 80%; /* Largeur maximale du formulaire */
+    margin: auto; /* Centrer le formulaire horizontalement */
+  }
+  
+  /* Style des sous-conteneurs */
+  .sub-container {
+    width: 100%;
+    margin-bottom: 20px; /* Marge en bas de chaque sous-conteneur */
+  }
+  
+  /* Style des labels */
+  .mat-form-field-label {
+    font-weight: bold; /* Mettre en gras */
+  }
+  
+  /* Style des inputs */
+  .mat-input-element {
+    width: 100%; /* Prendre toute la largeur du conteneur */
+    border-radius: 5px; /* Coins arrondis */
+    border: 1px solid #ccc; /* Bordure grise */
+    padding: 8px; /* Espacement intérieur */
+  }
+  
+  /* Style des boutons */
+  button {
+    background-color: #007bff; /* Couleur de fond */
+    color: #fff; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins arrondis */
+    padding: 10px 20px; /* Espacement intérieur */
+    cursor: pointer; /* Curseur pointeur au survol */
+  }
+  
+  /* Style des boutons au survol */
+  button:hover {
+    background-color: #0056b3; /* Couleur de fond au survol */
+  }
+  
+
+  /* Style pour aligner les éléments sur la même ligne */
+.form-container label {
+    display: inline-block;
+    width: 100px; /* Ajustez la largeur selon vos besoins */
+    text-align: right;
+    margin-right: 10px;
+}
+
+.form-container input[type="text"],
+.form-container input[type="date"] {
+    width: 200px; /* Ajustez la largeur selon vos besoins */
+}
+
+/* Style pour afficher la Date de Naissance sur une nouvelle ligne */
+.form-container label[for="dateNaissance"] {
+    display: block;
+    margin-top: 10px; /* Espacement entre les lignes */
+}

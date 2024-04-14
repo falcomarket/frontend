@@ -1,0 +1,58 @@
+
+.formspaiements {
+    display: grid;
+    grid-template-columns: repeat(10, 9.5%);
+    gap: 1rem;
+  }
+  
+  .itemNomTitulaireCarteCredit{
+    grid-row: 1 / 2;
+    grid-column: 2 / 9;
+    mat-form-field {
+      width: 100%; 
+    }
+  }
+  .itemNumCarteCredit{
+    grid-row: 2 / 3;
+    grid-column: 2 / 9;
+    mat-form-field {
+      width: 100%; 
+    }
+  }
+  .itemMoisExpirationCarteCredit{
+    grid-row: 3 / 4;
+    grid-column: 2 / 4;
+    mat-form-field {
+      width: 100%; 
+    }
+  }
+  .itemAnneeExpirationCarteCredit{
+    grid-row: 3 / 4;
+    grid-column: 4 / 6;
+    mat-form-field {
+      width: 100%; 
+    }
+  }
+  
+  .itemCodeSecuriteCarteCredit{
+    grid-row: 4 / 5;
+    grid-column: 2 / 4;
+    mat-form-field {
+      width: 50%; 
+    }
+    
+  }
+  
+  
+  
+  .itemInformationsCarteCredit {
+    grid-row: 5 / 10;
+    grid-column: 2 / 9;
+    width: 100%;
+    margin: auto;
+   /* padding: 20px;*/
+    display:flex;
+    justify-content:center;
+  }
+  
+  

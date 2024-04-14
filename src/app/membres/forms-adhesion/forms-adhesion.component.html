@@ -1,0 +1,132 @@
+<form [formGroup]="formsadhesion" >
+<div class="formsadhesion">
+    <div class="itemPlanA">
+        <mat-card class="avantage-card">
+                 
+                 
+            <mat-card-header style="display: flex; justify-content: center;background-color: rgb(177, 184, 252);">
+                <div mat-card-avatar class="avantage-card-header-image"></div>
+                <mat-card-title style='font-size: 24px;color:rgb(6, 22, 248);'>{{ choixPlanAdhesion.choixPlanAdhesion1 }} </mat-card-title>
+                <mat-card-subtitle style='font-size: 24px;color:red;'>{{'$' + montantPlanAdhesion.montantPlanAdhesion1 }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content style="display: flex; justify-content: center;">
+                <img style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;"
+                mat-card-image src="assets/blanc.jpg" >
+            </mat-card-content>
+            <mat-card-actions style="display: flex; justify-content: center;background-color: rgb(238, 213, 213);">
+                <button mat-raised-button color="warn" type="button" (click)="onChoix1()">VOTRE CHOIX</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    
+    <div class="itemPlanB">
+        <mat-card class="avantage-card-card">
+            <mat-card-header style="display: flex; justify-content: center;background-color: rgb(177, 184, 252);">
+                <div mat-card-avatar class="avantage-card-header-image"></div>
+                <mat-card-title style='font-size: 24px;color:rgb(6, 22, 248);'>{{ choixPlanAdhesion.choixPlanAdhesion2 }}</mat-card-title>
+                <mat-card-subtitle style='font-size: 24px;color:red;'>{{'$' + montantPlanAdhesion.montantPlanAdhesion2 }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content style="display: flex; justify-content: center;">
+                <img style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;"
+                mat-card-image src="assets/blanc.jpg" >
+            </mat-card-content>
+            <mat-card-actions style="display: flex; justify-content: center;background-color: rgb(238, 213, 213);">
+              <button mat-raised-button color="warn" type="button"(click)="onChoix2()">VOTRE CHOIX</button>
+            </mat-card-actions>
+          </mat-card>
+    </div>
+    
+    <div class="itemPlanC">
+        <mat-card class="avantage-card">
+            <mat-card-header style="display: flex; justify-content: center;background-color: rgb(177, 184, 252);">
+              <div mat-card-avatar class="avantage-card-header-image"></div>
+              <mat-card-title style='font-size: 24px;color:rgb(6, 22, 248);'>{{ choixPlanAdhesion.choixPlanAdhesion3 }}</mat-card-title>
+              <mat-card-subtitle style='font-size: 24px;color:red;'>{{'$' + montantPlanAdhesion.montantPlanAdhesion3 }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content style="display: flex; justify-content: center;">
+                <img style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;"
+                mat-card-image src="assets/blanc.jpg" alt="Description de l'image">
+            </mat-card-content>
+            <mat-card-actions style="display: flex; justify-content: center; background-color: rgb(238, 213, 213);">
+              <button mat-raised-button color="warn" type="button" (click)="onChoix3()">VOTRE CHOIX</button>
+            </mat-card-actions>
+          </mat-card>
+    </div>
+   
+
+    <div class="itemDateDebutAdhesion">
+        <mat-form-field
+                appearance="fill"  
+                color="primary" 
+                floatLabel="always" 
+                id="dateDebutAdhesion"
+                [tabIndex]="1">
+                <mat-label>Début adhesion:</mat-label>
+                <input matInput [matDatepicker]="picker4" formControlName="dateDebutAdhesion"  required>
+                <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+                <mat-datepicker #picker4></mat-datepicker>
+                <mat-error *ngIf="formsadhesion.get('dateDebutAdhesion')?.hasError('required')">La date est requise.</mat-error>
+        </mat-form-field>
+     
+    </div>
+    <div class="itemDateFinAdhesion">
+        <mat-form-field
+                appearance="fill"  
+                color="primary" 
+                floatLabel="always" 
+                id="dateFinAdhesion"
+                [tabIndex]="2">
+                <mat-label>Fin adhesion:</mat-label>
+                <input matInput [matDatepicker]="picker5" formControlName="dateFinAdhesion" required>
+                <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
+                <mat-datepicker #picker5></mat-datepicker>
+                <mat-error *ngIf="formsadhesion.get('dateFinAdhesion')?.hasError('required')">La date est requise.</mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="itemTypeAdhesion">
+        <mat-card style="display: flex; justify-content: center;background-color: white;font-size: 40px;color:rgb(7, 11, 240);">
+            <mat-card-title style="font-size: 16px;color:rgb(7, 11, 240);;height: 3.5em;">PLAN ADHESION : {{type}}</mat-card-title>
+        </mat-card>   
+    </div>
+
+    <div class="itemMontantAdhesion">
+        <mat-card style="display: flex; justify-content: center;background-color: white;font-size: 40px;color:rgb(7, 11, 240);">
+            <mat-card-title style="font-size: 16px;color:rgb(7, 11, 240);;height: 3.5em;">MONTANT ADHESION : {{montant}}</mat-card-title>
+        </mat-card>   
+    </div>
+    
+    <div class="itemStatutAdhesion">
+            <label for="statutAdhesion">Statut d adhesion:</label>
+            <select 
+            id="statutAdhesion" 
+            name="statutAdhesion" 
+            formControlName="statutAdhesion"
+            style=
+                "color: #333;
+                background-color: #f4f8cb;
+                border: 1px solid #ccc;
+                padding: 8px;
+                font-size: 14px;
+                width: 100%;
+                margin-bottom: 10px;
+                font-family: Arial, sans-serif;">
+                    <option *ngFor="let statut of statutAdhesionValues" [value]="statut">{{ statut }}</option>
+            </select>
+    </div>
+   
+    <!--div class="itemFooterAdhesion" >
+        <button mat-raised-button color="primary" type="submit" ><mat-icon>check</mat-icon>Valider</button>
+        <button mat-raised-button color="primary"  type="reset" (click)="onCancelFormContrat()" > <mat-icon>undo</mat-icon>Initialiser</button> 
+    </div-->
+</div>
+</form>

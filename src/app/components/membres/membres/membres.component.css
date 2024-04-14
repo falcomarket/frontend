@@ -1,0 +1,142 @@
+.table-container {
+  margin: 20px auto; /* Marge en haut et en bas (20px) et centrage horizontal (auto) */
+  width: 100%; /* Largeur du conteneur (ajustez selon vos besoins) */
+  padding: 10px; /* Espacement intérieur autour du conteneur (ajustez selon vos besoins) */
+}
+
+
+/* Style de l'en-tête de colonne lorsqu'il est cliquable pour le tri */
+th[mat-header-cell] {
+  cursor: pointer;
+  margin-left: 5px; /* Espace entre le texte et l'icône */
+  font-size: 16px; /* Taille de la police de l'icône */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-shadow: 0px 2px 4px rgba(163, 63, 63, 0.1); /* Ombre légère sous les en-têtes */
+  background-color: #020d2b; /* Couleur de fond de l'en-tête #020d2b;*/
+  color: rgb(241, 236, 239); /* Couleur du texte dans l'en-tête */
+  height: 45px;
+}
+
+th[mat-header-cell]:hover {
+  background-color: #431bf3 /* Couleur de fond au survol */
+}
+
+tr[mat-row]:hover {
+  background-color: #330ce2; /* Couleur de fond au survol */
+}
+
+
+/* Style de la rangée de données lorsqu'elle est survolée */
+tr[mat-row] {
+  background-color:#020D13; /* Couleur de fond au survol */
+}
+
+td[mat-cell] {
+  color:white; /* Couleur du texte */
+  border: 0px solid #ccc; /* Bordure de 1 pixel solide en couleur grise */
+  padding: 8px; /* Espacement interne des cellules */
+  text-align: left; /* Alignement du texte dans les cellules */
+  height: 20px;
+}
+
+
+
+/* membres.component.css */
+
+/* Conteneur de recherche */
+.search-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Champ de recherche */
+.search-container input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: 0px solid #B2A9AD;
+  background-color: #B2A9AD;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Bouton de recherche */
+.search-container button {
+  background-color: #020d2b;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Boutons radio pour les opérateurs logiques */
+.search-container label {
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+/* Styles pour les boutons radio sélectionnés */
+.search-container input[type="radio"]:checked + label {
+  font-weight: bold;
+  color: #90b2f3;
+}
+
+
+/* Styles pour le composant MatPaginator */
+
+/* Personnalisation du conteneur principal */
+mat-paginator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #f0f0f0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size:large;
+  color: #4307e9;
+}
+
+/* Styles pour les boutons de navigation */
+mat-paginator-navigation {
+  display: flex;
+  align-items: center;
+}
+
+mat-paginator-navigation button {
+  margin: 0 5px;
+  border: none;
+  background-color: #2196f3;
+  color: #fff;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+mat-paginator-navigation button:hover {
+  background-color: #0d47a1;
+}
+
+/* Styles pour la boîte de sélection du nombre d'éléments par page */
+.mat-paginator-page-size {
+  margin-left: 20px;
+}
+
+mat-select-arrow {
+  color: #2196f3;
+}
+
+mat-select-panel {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+mat-option {
+  color: #000;
+}
+
+mat-option:hover {
+  background-color: #a34242;
+}

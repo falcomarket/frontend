@@ -1,0 +1,20 @@
+
+.contratMembre{
+    display: grid;
+    grid-template-columns: repeat(10, 9.50%);
+    gap: 1rem;
+  }
+  .contratAdhesion{
+    grid-row: 4/ 12;
+    grid-column: 1 / 10;
+    background-color:white;
+  }
+  .carteAdhesion{
+    grid-row: 2/ 3;
+    grid-column: 1 / 9;
+    background-color:white;
+    
+  }
+  
+
+  

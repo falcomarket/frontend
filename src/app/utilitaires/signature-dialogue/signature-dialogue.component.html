@@ -1,0 +1,12 @@
+<h2>Signez ici</h2>
+<canvas #signaturePadCanvas width="400" height="200"></canvas>
+
+<div class="buttons">
+  <button mat-button color="primary" (click)="clearSignature()">Fermer</button>
+  <button mat-button color="accent" (click)="saveSignature()">Enregistrer</button>
+</div>
+
+<!--div *ngIf="signatureImage">
+  <h3>Signature :</h3>
+  <img [src]="'data:image/png;base64,' + signatureImage" alt="Signature">
+</div-->

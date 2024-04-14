@@ -1,0 +1,175 @@
+.titre{
+    width: 100%;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;/* Police de caractères */
+    font-size: 20px; /* Taille de la police */
+    font-weight:normal; /* Style de la police (gras, italique, normal, etc.) */
+    letter-spacing: 1px; /* Espacement entre les lettres */
+    line-height: 0.5; /* Espacement entre les lignes */
+    text-align: center; /* Alignement du texte */
+    text-transform:uppercase; /* Texte en majuscules ou minuscules */
+    text-decoration: none; /* Décoration du texte (souligné, barré, etc.) */
+    color:white; 
+    margin: 10px auto;
+    padding: 20px;
+    border: 1px solid ;
+    border: 0px solid rgb(24, 9, 235);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color:rgb(24, 9, 235);
+    
+}
+
+.form-container {
+  max-width: 60%;
+  height: auto   /*100vh;*/;
+  margin: 5px auto;
+  padding: 5px;
+  border: 1px solid rgb(24, 9, 235);;
+  border-radius: 8px;
+  background-color: #a4c8f7;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form {
+  max-width: 100%;
+  margin-left: 0 px;
+  padding: 5px;
+  border: 1px solid #fdfcff;
+  border-radius: 5px;
+  border: 1px solid  rgb(24, 9, 235);
+  background-color:   #a4c8f7;
+ 
+}
+
+.tab-label {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;/* Police de caractères */
+  font-size: 30px;
+  font-weight:normal;
+  color: white;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgb(24, 9, 235);
+  border-radius: 50%; 
+  margin-right: 5px; 
+  background-color: rgb(24, 9, 235);
+}
+
+button[mat-raised-button] {
+    margin-right: 10px;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+button[type="button"]:hover {
+  background-color: #218838;
+}
+
+button[type="button"] {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="reset"]:hover {
+  background-color: #ce1225;
+}
+button[type="reset"] {
+  background-color: #dc3545;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+
+.itemFooterPaiement{
+  grid-row: 11 / 12;
+  grid-column: 2 / 9;
+  display:flex;
+  justify-content:space-between;
+  border: 1px solid white;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+
+
+.itemFooterPerso{
+  grid-row: 17 / 18;
+  grid-column: 1 / 12;
+  display:flex;
+  justify-content:space-between;
+  border: 1px solid white;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.itemFooterAdhesion{
+  grid-row: 13 / 14;
+  grid-column: 1 / 10;
+  display:flex;
+  justify-content:space-between;
+  border: 1px solid white;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+
+.itemFooterPaiement{
+  grid-row: 11 / 12;
+  grid-column: 2 / 9;
+  display:flex;
+  justify-content:space-between;
+  border: 1px solid white;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+/* barcode-generator.component.css */
+canvas {
+  width: 300px;
+  height: auto;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+}
+
+.contrat_footer{
+  grid-row: 1/ 2;
+  grid-column: 1 / 10;
+  display:flex;
+  justify-content:space-between;
+  border: 0px solid white;
+  padding: 8px;
+  border-radius: 8px;
+}
+ 
+.validation_footer{
+  grid-row: 13/ 14;
+  grid-column: 1 / 4;
+  display:flex;
+  justify-content:space-between;
+  border: 1px solid white;
+  padding: 8px;
+  border-radius: 8px;
+}
+

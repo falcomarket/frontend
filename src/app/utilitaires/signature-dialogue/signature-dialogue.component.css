@@ -1,0 +1,13 @@
+canvas {
+    border: 1px solid #000;
+  }
+  
+  .buttons {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  button {
+    margin: 0 10px;
+  }
+  

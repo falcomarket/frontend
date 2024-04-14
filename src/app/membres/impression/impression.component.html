@@ -1,0 +1,195 @@
+<div class="contratMembre">
+    <div class="contratAdhesion" id="contratAdhesion" >
+        
+        <p > 
+        <div class="titre" >Contrat d'adhésion</div>
+        <br>
+        <br>
+        <br>
+        <br>
+        Entre :<br>
+        <br>
+        {{entreprise}} Wholesale Corporation<br>
+        Adresse : 2150 rue robert bouthiellette<br>
+        Laval Québec H1R 2L5<br>
+        <br>
+        <br>
+        Et :<br>
+        <br>
+        M./Mme {{membre?.nom+' '+membre?.prenom}}<br>
+        Adresse : {{membre?.adressePhysique}}<br>
+        Ville : {{membre?.villeMembre}} Code Postal:{{membre?.codePostalMembre}}<br>
+        Ci-après dénommé "Le Membre"<br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        Article 1 - Objet du contrat<br>
+        <br>
+        Le présent contrat a pour objet de définir les conditions d'adhésion du Membre à MegaStore et les droits et obligations respectifs des parties.<br>
+        <br>
+        <br>
+        Article 2 - Types d'adhésion<br>
+        <br>
+        Le Membre à choisit le type d'adhésion suivant : {{membre?.typeAdhesion}}<br> parmis les suivants:
+        <br>
+        {{choixPlanAdhesion.choixPlanAdhesion1}}<br>
+        Accès aux entrepôts MegaStore pour les achats en gros à des prix réduits.<br>
+        Accès aux offres promotionnelles et aux remises régulières sur une large gamme de produits.<br>
+        Services de base : Accès aux services de base de {{entreprise}}, comme les pharmacies et les stations-service.<br>
+        <br>
+        {{choixPlanAdhesion.choixPlanAdhesion2}}<br>
+        Tous les avantages de l'adhésion {{choixPlanAdhesion.choixPlanAdhesion1}}.<br>
+        Achats professionnels : Possibilité d'acheter des produits pour un usage professionnel ou commercial.<br>
+        Cartes supplémentaires : Possibilité de demander jusqu'à six cartes supplémentaires pour les employés autorisés de l'entreprise.<br>
+        <br>
+        {{choixPlanAdhesion.choixPlanAdhesion3}}<br>
+        Tous les avantages des adhésions {{choixPlanAdhesion.choixPlanAdhesion1}} et {{choixPlanAdhesion.choixPlanAdhesion2}}.<br>
+        Récompense annuelle de 2% : Obtenez un pourcentage de récompense de 2% sur les achats {{entreprise}} Executive.<br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        Article 3 - Durée de l'adhésion<br>
+        <br>
+        L'adhésion est valable pour une durée d'un an à compter de la date d'inscription qui exepira le {{membre?.dateFinAdhesion}}. <br> 
+        Le Membre recevra un rappel pour le renouvellement de son adhésion.<br>
+        <br>
+        <br>
+        Article 4 - Paiement des frais d'adhésion<br>
+        <br>
+        Le Membre s'engage à payer les frais d'adhésion annuels comme suit :<br>
+        <br>
+        <br>
+        {{choixPlanAdhesion.choixPlanAdhesion1}} : [Montant en {{montantPlanAdhesion.montantPlanAdhesion1}}]<br>
+        {{choixPlanAdhesion.choixPlanAdhesion2}} : [Montant en {{montantPlanAdhesion.montantPlanAdhesion2}}$]<br>
+        {{choixPlanAdhesion.choixPlanAdhesion3}} : [Montant en {{montantPlanAdhesion.montantPlanAdhesion3}}$]<br>
+        
+        Le paiement peut être effectué en une seule fois ou en plusieurs versements, selon les options proposées par {{entreprise}}.<br>
+        <br>
+        <br>
+        Article 5 - Avantages de l'adhésion<br>
+        <br>
+        Le Membre bénéficie des avantages suivants en fonction du type d'adhésion choisi :<br>
+        <br>
+        [Liste détaillée des avantages spécifiques à chaque type d'adhésion]<br>
+        <br>
+        <br>
+        Article 6 - Règles d'utilisation<br>
+        <br>
+        Le Membre s'engage à respecter les règles d'utilisation des entrepôts {{entreprise}} et des services associés, y compris les politiques de retour et d'échange des produits.<br>
+        <br>
+        Article 7 - Résiliation<br>
+        <br>
+        <br>
+        En cas de non-respect des conditions du présent contrat, {{entreprise}} se réserve le droit de résilier l'adhésion du Membre sans préavis et sans remboursement des frais d'adhésion.<br>
+        <br>
+        Fait en deux exemplaires, à Québec, le {{membre?.dateDebutAdhesion}}<br>
+        <br>
+        Signature de {{entreprise}}.<br>
+        <br>
+        <img [src]="'assets/mbsignature.png'">
+        <br>
+        <br>
+        <br>
+        <br>
+        <div style="width: 20%;">
+            
+        <h3>Signature du membre:</h3>
+        <img [src]="signatureurl">
+
+        </div>
+        <br>
+        
+    
+    </div>
+
+    
+            <div class="carteAdhesion" id="carteAdhesion" 
+            style="
+            width: 720px;
+            height: 800px;
+            width: 100%;
+            background-color: #a4c8f7;">
+                
+                
+       
+            <mat-card class="identificationCode" style="display:flex;background-color:  #a4c8f7;;width: 100%; flex-direction:column;gap:20PX;padding: 40px ;align-items: center;">
+               
+                
+                                <mat-card style="
+                                    border-radius: 8px;
+                                    width: 720px;
+                                    height: 340px;
+                                    padding: 0px;
+                                    background-color:  white;
+                                    border: 3px solid  gray;
+                                    display: flex;
+                                    
+                                    justify-content: center;align-items: center">
+                                <div><p style="font-size: 24px;color:blue;text-transform:uppercase;"> {{entreprise+' Engros'}}</p></div>
+                                <mat-card style="
+                                border-radius: 8px;
+                                width: 25%;
+                               
+                                display: flex;
+                                justify-content: center;">  
+                                
+                                <img *ngIf="capturedPhotoUrl" [src]="capturedPhotoUrl">
+                                
+                                </mat-card>
+                                
+                                
+                                    <div>
+                                        <p style="font-size: 12px;;text-transform:capitalize;color:black">
+                                        <i class="fas fa-user"></i>{{membre?.nom+' '+membre?.prenom+"  "}}
+                                        <i class="fas fa-phone"></i>{{' '+membre?.numeroTelephone}}
+                                        </p>
+                                    </div>   
+                                         
+                                    <div><p style="font-size: 12px;color:black">
+                                        <i class="fas fa-id-badge"></i>Code: {{membre?.codeMembre}}
+                                        <i class="fas fa-id-card"></i>Expire: {{membre?.dateFinAdhesion}}</p>
+                                    </div>
+                                
+                                
+                                </mat-card>
+                                <mat-card style="
+                                            border-radius: 8px;
+                                            width: 720px;
+                                            height: 340px;
+                                            display: flex;
+                                            padding: 0px;
+                                            justify-content: center;background-color:  white;;align-items: center;border: 3px solid gray;">
+                                            
+
+
+                                            <div class="codebarre">
+                                                <ngx-barcode6
+                                                [bc-format]="'CODE128'"
+                                                [bc-value]="(codebar6MembreService.codeMembreDataValue$ | async) ? (codebar6MembreService.codeMembreDataValue$ | async)! : ''"
+                                                [bc-display-value]="true"
+                                                [bc-background]="'#f0f0f0'" >
+                                              </ngx-barcode6> 
+                                            </div>
+                                            <div><p style="font-size: 14px;color:blue;text-transform:uppercase;">carte {{'*'+membre?.typeAdhesion+'*'}} card </p></div>
+                                            <div><p style="font-size: 14px;color:blue">{{membre?.codeMembre}}</p></div>
+                                </mat-card>
+            </mat-card>
+    
+    </div>
+    
+    <!--div class="contrat_footer">  
+       
+        <button mat-raised-button color="primary" type="button"(click)="generatePDF()">Imprimer Contrat Adhésion</button>
+        <button mat-raised-button color="primary" type="button"(click)="generateCarteAdhesionPDF()">Imprimer Carte Membre</button>
+        <button mat-raised-button color="warn" type="button"(click)="onQuiter()">Quitter</button>
+    </div-->
+    </div>
+           
+

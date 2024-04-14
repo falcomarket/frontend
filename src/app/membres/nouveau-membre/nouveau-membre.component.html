@@ -1,0 +1,87 @@
+<div class="form-container">
+    <div class="tab-container">
+     
+    <mat-tab-group #tabGroup>
+        
+        <mat-tab  [disabled]="tab1Disabled">
+    
+            <ng-template mat-tab-label>
+                <span class='tab-label'>1</span>
+            </ng-template>
+    
+        <div class=titre>renseignements personnels</div>
+          
+        <app-forms-perso></app-forms-perso>
+        <div class="itemFooterPerso" >
+          <button mat-raised-button color="primary" type="submit" (click)="onSubmitFormPerso()" ><mat-icon>check</mat-icon>Valider</button>
+          <button mat-raised-button color="primary" type="reset" (click)="onCancelFormPerso()" > <mat-icon>undo</mat-icon>Initialiser</button> 
+          <button mat-raised-button color="primary"  type="button" (click)="openPhotoDialog()" > <mat-icon>camera_alt</mat-icon>Prise photo</button> 
+        </div>
+        </mat-tab>
+        <mat-tab [disabled]="tab2Disabled">
+            <ng-template mat-tab-label>
+                <span class='tab-label'>2</span>
+              </ng-template>
+            <div class=titre>choix adhesion</div>
+                 <app-forms-adhesion></app-forms-adhesion>
+                 <div class="itemFooterAdhesion" >
+                  <button mat-raised-button color="primary" type="submit" (click)="onSubmitFormAdhesison()" ><mat-icon>check</mat-icon>Valider</button>
+                  <button mat-raised-button color="primary"  type="reset" (click)="onCancelFormContrat()" > <mat-icon>undo</mat-icon>Initialiser</button> 
+              </div>
+        </mat-tab>
+        
+        <mat-tab [disabled]="tab3Disabled">
+            <ng-template mat-tab-label>
+                <span class='tab-label'>3</span>
+              </ng-template>
+            <div class=titre>INFORMATIONS PAIEMENTS</div>
+          
+            <app-forms-paiement></app-forms-paiement>
+            <div class="itemFooterPaiement">
+              <button mat-raised-button color="primary" type="submit" (click)="onSubmitFormPaiement()" ><mat-icon>check</mat-icon>Valider</button>
+              <button mat-raised-button color="primary"  type="reset" (click)="onCancelFormPaiement()" > <mat-icon>undo</mat-icon>Initialiser</button> 
+            </div>
+            
+        </mat-tab>
+        
+        <mat-tab [disabled]="tab4Disabled">
+            <ng-template mat-tab-label>
+                <span class='tab-label'>4</span>
+              </ng-template>
+            <div class=titre>Validation & Sauvgarde</div>
+            
+             <app-validation></app-validation>
+              <div class="validation_footer">  
+                    <button mat-raised-button color="primary" type="button"(click)="onSaveGlobal()" >Enregistrer</button>
+                    <button mat-raised-button color="primary" type="button"(click)="onCorrigerSaveGlobal()" >Corriger</button>
+                    <button mat-raised-button color="primary" type="button"(click)="openSignatureDialog()">Signature Membre</button>
+
+              </div>
+                  
+           
+          </mat-tab>
+          <mat-tab [disabled]="tab5Disabled">
+            <ng-template mat-tab-label>
+                <span class='tab-label'>5</span>
+              </ng-template>
+            <div class=titre>Impression des documents</div>
+           <div class="contrat_footer">  
+       
+            <button mat-raised-button color="primary" type="button"(click)="generatePDF()">Imprimer Contrat Adhésion</button>
+            <button mat-raised-button color="primary" type="button"(click)="generateCarteAdhesionPDF()">Imprimer Carte Membre</button>
+            <button mat-raised-button color="warn" type="button"(click)="onQuiter()">Quitter</button>
+          </div>
+          
+        
+            <app-impression></app-impression>
+              </mat-tab>
+        
+          <mat-tab [disabled]="tab6Disabled">
+            <ng-template mat-tab-label>
+                <span class='tab-label'>6</span>
+              </ng-template>
+              <diV></diV>
+              </mat-tab>
+        </mat-tab-group>
+    </div>
+    

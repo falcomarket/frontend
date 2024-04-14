@@ -1,0 +1,141 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark px-2">
+    <div class="side-nav-button p-2 me-3 text-light" (click)="SideNavToggle()">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+    <a class="navbar-brand px-4" href="#">Store</a>
+    <div class="navbar-collapse">
+        <ul class="navbar-nav me-auto ">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                    <i class="fa-solid fa-users"></i>
+                    Membres
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item dropdown-menu-dark" href='/newmembre'><i class='fa-solid fa-file-contract'></i> Nouvelle Inscription</a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark" href='/editmembre'><i class='fa-solid fa-file-contract'></i> Edit membre</a></li>
+                      
+                        <li><a class="dropdown-item dropdown-menu-dark" href='/profilmembre'><i class="fa-solid fa-user"></i>Profil membres</a></li>
+                        
+                        <li class="dropdown">
+                            <a class="dropdown-item dropdown-menu-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-chart-line"></i>
+                            Rapports financiers
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item dropdown-menu-dark" href='rapports/rfinancier'>Factures</a></li>
+                                <li><a class="dropdown-item dropdown-menu-dark" href='rapports/rcompte'>Releves de compte</a></li>
+                                <li><a class="dropdown-item dropdown-menu-dark" href='rapports/hpaiements'>Historique des paiements</a></li>
+                                <li><a class="dropdown-item dropdown-menu-dark" href='rapports/scompte'>Solde du compte</a></li>
+                                <li><a class="dropdown-item dropdown-menu-dark" href='rapports/dtaxes'>details des taxes</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="dropdown-item dropdown-menu-dark" href='#'><i class="fa-solid fa-chart-bar"></i>Dashboard Membres</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                    <i class="fa-solid fa-box"></i>
+                    Produits
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-plus"></i> Nouveau produit</a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-edit"></i> Edit produit</a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-search"></i> Recherche produit</a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-list"></i> Liste produits</a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-chart-bar"></i> Rapport de performance des produits</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                    <i class="fas fa-store-alt"></i>
+                    Ventes
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-cash-register"></i> Enregistrement des ventes</a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-file-invoice-dollar"></i> Facturation automatique</a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-tags"></i> Gestion des remises et promotions</a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-money-check-alt"></i> Suivi paiements</a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-undo"></i> Gestion retours</a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-chart-bar"></i> Analyse des performances des ventes</a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-handshake"></i> Suivi des commissions</a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-handshake"></i> rapport de ventes par periode</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                    <i class="fa-solid fa-shopping-cart"></i>
+                    Commandes
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-cart-plus"></i> Nouvelle commande </a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-edit"></i> Editer commande </a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-list"></i> Liste commandes </a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-search"></i> Recherche commande </a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-truck"></i> Suivi commandes </a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-money-bill-wave"></i>> Gestion paiement </a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-history"></i> Historique commandes </a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-file-invoice"></i> Generation factures </a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-bell"></i> Notifications et alertes </a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                    <i class="fa-solid fa-truck"></i>
+                    Fournisseurs
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-plus"></i> Nouveau fournisseur</a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-user-edit"></i> Editer profil fournisseur</a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-search"></i> Recherche fournissuer</a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-list"></i> Liste fournisseur</a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-chart-line"></i>Rapport des fournisseurs</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <i class="fa-solid fa-box"></i>
+                        <span>Gestion de stocks</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-boxes"></i> Suivi niveau de stock</a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-dolly-flatbed"></i> Gestion des entrees et sorties</a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-exclamation-triangle"></i> Alertes de stock faible</a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-truck-moving"></i> Suivi des mouvements de stockage</a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-sync-alt"></i> Ajustement de stockage</a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-file-alt"></i> Rapports de stock</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <i class="fa-solid fa-cog"></i>
+                        <span>Parametres</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-users"></i>Gerer les utilisateurs</a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-cog"></i>Configurer les preferences de l'application</a></li>
+                        <li><a class="dropdown-item dropdown-menu-dark"><i class="fa-solid fa-database"></i>gerer les parametres de stock</a></li>
+                    </ul>
+                </li>
+        </ul>
+    </div>
+    <form class="d-flex me-5">
+        <input class="form-control me-2" type="search" placeholder="Search">
+        <button class="btn btn-outline-light" type="submit">Search</button>
+
+    </form>
+    <div class="profile-logo dropstart">
+        <button class="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown">
+            <i class="fa-solid fa-user"></i>User
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a href="#" class="dropdown-item"><i class="fa-solid fa-user-plus"></i> Sign Up</a></li>
+            <li><a href="#" class="dropdown-item"><i class="fa-solid fa-sign-in-alt"></i> Log In</a></li>
+            <li><a href="#" class="dropdown-item"><i class="fa-solid fa-user-circle"></i> Your Profile</a></li>
+            <li><a href="#" class="dropdown-item"><i class="fa-solid fa-sign-out-alt"></i> Log Out</a></li>
+
+        </ul>
+    </div>
+</nav>

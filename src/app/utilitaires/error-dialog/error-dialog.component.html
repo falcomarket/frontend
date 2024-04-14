@@ -1,0 +1,11 @@
+<mat-card class="error-card">
+    <mat-card-header>
+      <mat-card-title class="error-card-title">Erreur de saisie dans le formulaire</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ errorMessage }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button class="error-card-button" (click)="closeDialog()">Fermer</button>
+    </mat-card-actions>
+  </mat-card>

@@ -1,0 +1,316 @@
+<form [formGroup]="formspersonnel" >
+    <div class="formspersonnel">     
+
+                <div class="itemNom">
+                    <mat-form-field 
+                        appearance="fill"  
+                        color="primary"
+                        floatLabel="always"
+                        id="nom" 
+                        [tabIndex]="1">
+                        <mat-label>Nom:</mat-label>
+                        <input matInput formControlName="nom" required>
+                        <mat-error *ngIf="formspersonnel.get('nom')?.hasError('required')">Le nom est requis</mat-error>
+                        <mat-error *ngIf="formspersonnel.get('nom')?.hasError('minlength')">Le nom doit contenir au moins 3 caractères et maximum 50 caractères</mat-error>
+                        <mat-error *ngIf="formspersonnel.get('nom')?.hasError('pattern')">Le nom ne correspond pas au modèle</mat-error>
+                    </mat-form-field>
+                </div>
+                
+                <div class="itemPrenom">
+                    <mat-form-field 
+                        apperance="legacy" 
+                        color="primary" 
+                        floatLabel="always" 
+                        id="prenom" 
+                        [tabIndex]="2">
+                        <mat-label>Prénom:</mat-label>
+                        <input matInput formControlName="prenom" required>
+                        <mat-error *ngIf="formspersonnel.get('prenom')?.hasError('required')">Le prénom est requis</mat-error>
+                        <mat-error *ngIf="formspersonnel.get('prenom')?.hasError('minlength')">Le prénom doit contenir au moins 3 caractères</mat-error>
+                        <mat-error *ngIf="formspersonnel.get('prenom')?.hasError('pattern')">Le prénom ne correspond pas au modèle</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="itemGenre">
+                    <mat-form-field
+                        class="custom-fill"
+                        appearance="fill"  
+                        color="primary" 
+                        floatLabel="always" 
+                        id="genreMembre"
+                        [tabIndex]="3">
+                        <mat-label>Genre:</mat-label>
+                        <mat-select formControlName="genreMembre">
+                        <mat-option *ngFor="let genre of genreMembreValues" [value]="genre">
+                                {{ genre }}
+                        </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="formspersonnel.get('genreMembre')?.hasError('required')">Le genre est requis.</mat-error>
+                    </mat-form-field>
+                </div>      
+
+                <div class="itemPhoto">      
+                    
+                    <mat-card>  
+                                        
+                                        <img *ngIf="capturedPhotoUrl" [src]="capturedPhotoUrl">
+                    </mat-card>
+                    
+                    
+                </div>
+    
+                <div class="itemDateN">
+                    <mat-form-field
+                        appearance="fill"  
+                        color="primary" 
+                        floatLabel="always" 
+                        id="dateNaissance"
+                        [tabIndex]="4">
+                        <mat-label>Anniversaire:</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="dateNaissance" (dateChange)="onDateChange($event)" required>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error *ngIf="formspersonnel.get('dateNaissance')?.hasError('required')">La date de naissance est requise.</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="itemNumTel">
+                    <mat-form-field 
+                        appearance="fill" 
+                        color="primary"
+                        floatLabel="always" 
+                        id="numeroTelephone" 
+                        [tabIndex]="5">
+                        <mat-label>Numéro Téléphone:</mat-label>
+                        <input matInput formControlName="numeroTelephone" [mask]="'(000) 000-0000'" [placeholder]="'(450) 363-6458'" required>
+                        <mat-error *ngIf="formspersonnel.get('numeroTelephone')?.hasError('required')">Le numéro de téléphone est requis</mat-error>
+                    </mat-form-field>              
+                </div>     
+    
+                <div class="itemEmail">
+                    <mat-form-field 
+                        appearance="fill"
+                        color="primary"
+                        floatLabel="always" 
+                        id="email"
+                        [tabIndex]="7">
+                        <mat-label>Email:</mat-label>
+                        <input matInput formControlName="email"  type="email" [placeholder]="emailMaskPlaceholder" required>
+                        <mat-error *ngIf="formspersonnel.get('email')?.hasError('required')">L'adresse Email est requise.</mat-error>
+                        <mat-error *ngIf="formspersonnel.get('email')?.hasError('email')">{{emailMaskPlaceholder}}</mat-error>
+                    </mat-form-field>
+                </div>
+       
+                <div class="itemJustificatif">
+                    <mat-form-field
+                        appearance="fill"  
+                        color="primary" 
+                        floatLabel="always" 
+                        id="pieceIdentite"
+                        [tabIndex]="8">
+                        <mat-label>Justificatif:</mat-label>
+                        <mat-select formControlName="pieceIdentite" (selectionChange)="updateJustificatifMasks()">
+                        <mat-option *ngFor="let piece of typeJustificatifValues" [value]="piece">
+                                {{ piece }}
+                        </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="formspersonnel.get('pieceIdentite')?.hasError('required')">Le justificatif identite est requis.</mat-error>
+                    </mat-form-field>
+                </div>      
+
+                <div class="itemNumJustificatif">
+                    <mat-form-field 
+                        appearance="fill"  
+                        color="primary" 
+                        floatLabel="always" 
+                        id="numPieceIdentite" 
+                        [tabIndex]="9">
+                        <mat-label>Numéro {{ formspersonnel.get('pieceIdentite')!.value }}:</mat-label>
+                        <input matInput formControlName="numPieceIdentite" [mask]="JustificatifMask" [placeholder]="JustificatifPlaceholder" required>
+
+                        <mat-error *ngIf="formspersonnel.get('numPieceIdentite')?.hasError('required')">Le numero est requis</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="itemDateDelivrance">
+                    <mat-form-field
+                        appearance="fill"  
+                        color="primary" 
+                        floatLabel="always" 
+                        id="dateDelivrePiece"
+                        [tabIndex]="15">
+                        <mat-label>Date d'Émission :</mat-label>
+                        <input matInput [matDatepicker]="picker2" formControlName="dateDelivrePiece" (dateChange)="onDateChange($event)" required>
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                        <mat-error *ngIf="formspersonnel.get('dateDelivrePiece')?.hasError('required')">La date de naissance est requise.</mat-error>
+                    </mat-form-field>
+                </div>
+            
+                <div class="itemDateExpiration">
+                    <mat-form-field
+                        appearance="fill"  
+                        color="primary" 
+                        floatLabel="always" 
+                        id="dateExpirePiece"
+                        [tabIndex]="16">
+                        <mat-label>Date d'Expiration :</mat-label>
+                        <input matInput [matDatepicker]="picker3" formControlName="dateExpirePiece" (dateChange)="onDateChange($event)" required>
+                        <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                        <mat-datepicker #picker3></mat-datepicker>
+                        <mat-error *ngIf="formspersonnel.get('dateExpirePiece')?.hasError('required')">La date de naissance est requise.</mat-error>
+                    </mat-form-field>
+                </div>
+    
+
+                <div class="itemAdresse">
+                    <mat-form-field 
+                    appearance="fill" 
+                    color="primary" 
+                    floatLabel="always" 
+                    id="adressePhysique" 
+                    [tabIndex]="17">
+                    <mat-label>Domicile:</mat-label>
+                        <textarea matInput 
+                        formControlName="adressePhysique" rows="2" required>
+                        </textarea>
+                        <mat-error *ngIf="formspersonnel.get('adressePhysique')?.hasError('required')">L'adresse domicile est requise.</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="itemPays">
+                    <mat-form-field
+                            appearance="fill"  
+                            color="primary" 
+                            floatLabel="always" 
+                            id="paysMembre"
+                            
+                            [tabIndex]="18">
+                            <mat-label>Pays/Province:</mat-label>
+                            <mat-select formControlName="paysMembre" >
+                            <!--mat-select formControlName="paysMembre"  (selectionChange)="updateMasks()"-->
+                                
+                            <mat-option *ngFor="let pays of  provincesValues" [value]="pays" >
+                                    {{ pays }}
+                            </mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="formspersonnel.get('paysMembre')?.hasError('required')">La selection du pays est requise.</mat-error>
+                    </mat-form-field>
+                </div>
+   
+                <div class="itemVille">
+                    <mat-form-field
+                            appearance="fill"  
+                            color="primary" 
+                            floatLabel="always" 
+                            id="villeMembre"
+                            [tabIndex]="19">
+                            <mat-label>Ville:</mat-label>
+                            <input matInput formControlName="villeMembre" required>
+                            <mat-error *ngIf="formspersonnel.get('villeMembre')?.hasError('required')">La ville est requise.</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div Class="itemCodePostal">
+                    <mat-form-field 
+                            appearance="fill" 
+                            color="primary" 
+                            floatLabel="always" 
+                            id="codePostalMembre" 
+                            [tabIndex]="20">
+                            <mat-label>Code Postal:</mat-label>
+                            <!--input matInput formControlName="codePostalMembre" [mask]="codePostalMask" [placeholder]="codePostalPlaceholder" required-->
+                            <input matInput formControlName="codePostalMembre" [mask]="'S0S 0S0'" [placeholder]="'S0S 0S0'" required>
+
+                            <mat-error *ngIf="formspersonnel.get('codePostalMembre')?.hasError('required')">Code Postal est requis</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="itemFacebook">
+                        <mat-form-field 
+                            appearance="fill"
+                            color="primary"
+                            floatLabel="always" 
+                            id="compteFacebook"
+                            [tabIndex]="21">
+                            <mat-label>Compte Facebook:</mat-label>
+                            <input matInput 
+                            formControlName="compteFacebook" [placeholder]="facebookMaskPlaceholder">
+                            <mat-error *ngIf="formspersonnel.get('compteFacebook')?.hasError('required')">Compte Facebook est requis.</mat-error>
+                            <mat-error *ngIf="formspersonnel.get('compteFacebook')?.hasError('invalid')">{{facebookMaskPlaceholder}}</mat-error>
+
+                        </mat-form-field>
+                </div>
+        
+                <div class="itemInstagram">
+                    <mat-form-field 
+                        appearance="fill"
+                        color="primary"
+                        floatLabel="always" 
+                        id="compteInstagram"
+                        [tabIndex]="22">
+                        <mat-label>Compte Instagram:</mat-label>
+                        <input matInput 
+                        formControlName="compteInstagram" [placeholder]="instagramMaskPlaceholder">
+                        <mat-error *ngIf="formspersonnel.get('compteInstagram')?.hasError('required')">Compte Instagram est requis.</mat-error>
+                        <mat-error *ngIf="formspersonnel.get('compteInstagram')?.hasError('invalid')">{{instagramMaskPlaceholder}}</mat-error>
+
+                    </mat-form-field>
+                </div>
+ 
+                <div class="itemGoogle">
+                    <mat-form-field 
+                        appearance="fill"
+                        color="primary"
+                        floatLabel="always" 
+                        id="compteGoogle"
+                        [tabIndex]="23">
+                        <mat-label>Compte Google:</mat-label>  
+                        <input matInput formControlName="compteGoogle" [placeholder]="googleMaskPlaceholder" >
+                        <mat-error *ngIf="formspersonnel.get('compteGoogle')?.hasError('required')">Compte Google est requise.</mat-error>
+                        <mat-error *ngIf="formspersonnel.get('compteGoogle')?.hasError('invalid')">{{googleMaskPlaceholder}}</mat-error>
+
+                    </mat-form-field>
+                </div>
+  
+                <div class="itemConsentement">
+                    <div class="card">
+                        <div class="card-body">
+                            
+                            <p  style="color:rgb(250, 2, 2)">Note de consentement </p>
+                            <p>
+                                En soumettant ce formulaire, vous consentez à ce que {{entreprise}} 
+                                collecte et traite les informations personnelles que vous avez fournies 
+                                afin de traiter votre demande. 
+                            </p>
+                            <p>
+                                Vos données personnelles seront traitées conformément à notre Politique 
+                                de Confidentialité, qui décrit les mesures que nous prenons pour protéger 
+                                vos informations et vos droits en matière de confidentialité.
+                            </p>
+                            <p>
+                                Vous avez le droit de retirer votre consentement à tout moment, ainsi que 
+                                d'accéder à vos données personnelles, de les corriger ou de les supprimer. 
+                                Pour exercer ces droits, veuillez nous contacter pour plus d'informations.
+                            </p>
+                            
+                        </div>
+                        <div class="card-actions">
+                            
+                            <mat-checkbox 
+                                formControlName="accepterConfidentialite"
+                                (change)="onAccepterConfidentialiteChange($event)">
+                                J'accepte la politique de confidentialité
+                            </mat-checkbox>
+                        </div>
+                    
+                    </div>
+                </div>
+                <!--div class="itemFooterPerso" >
+                        <button mat-raised-button color="primary" type="submit" ><mat-icon>check</mat-icon>Valider</button>
+                        <button mat-raised-button color="primary"  type="reset" (click)="onCancelFormPerso()" > <mat-icon>undo</mat-icon>Initialiser</button> 
+                        <button mat-raised-button color="primary"  type="button" (click)="openPhotoDialog()" > <mat-icon>camera_alt</mat-icon>Prise photo</button> 
+                </div-->
+    
+    </div>    
+</form>

@@ -1,0 +1,98 @@
+<form [formGroup]="formspaiements" >
+<div class="formspaiements">
+            
+    <div class="itemNomTitulaireCarteCredit">
+            <mat-form-field 
+                appearance="fill"  
+                color="primary"
+                floatLabel="always"
+                id="nomTitulaireCarteCredit" 
+                [tabIndex]="1">
+                <mat-label>Nom du Titulaire de la Carte de Crédit:</mat-label>
+                <input matInput formControlName="nomTitulaireCarteCredit"  required>
+                <mat-error *ngIf="formspaiements.get('nomTitulaireCarteCredit')?.hasError('required')">Le nom est requis</mat-error>
+                <mat-error *ngIf="formspaiements.get('nomTitulaireCarteCredit')?.hasError('minlength')">Le nom doit contenir au moins 3 caractères et maximum 50 caractères</mat-error>
+                <mat-error *ngIf="formspaiements.get('nomTitulaireCarteCredit')?.hasError('pattern')">Le nom ne correspond pas au modèle</mat-error>
+            
+            </mat-form-field>
+    </div>
+
+    <div class="itemNumCarteCredit">
+            <mat-form-field 
+                appearance="fill"  
+                color="primary"
+                floatLabel="always"
+                id="numeroCarteCredit" 
+                [tabIndex]="2">
+                <mat-label>Numéro de la Carte de Crédit:</mat-label>
+                <input matInput formControlName="numeroCarteCredit" mask="0000 0000 0000 0000"  required>
+                <mat-error *ngIf="formspaiements.get('numeroCarteCredit')?.hasError('required')">Le Numéro est requis</mat-error>
+                <mat-error *ngIf="formspaiements.get('numeroCarteCredit')?.hasError('pattern')">Le Numéro ne correspond pas au modèle</mat-error>
+            </mat-form-field>
+    </div>
+
+
+    <div class="itemMoisExpirationCarteCredit">
+        <mat-form-field 
+                appearance="fill"  
+                color="primary"
+                floatLabel="always"
+                id="moisExpirationCarteCredit" 
+                [tabIndex]="3">
+                <mat-label>Mois d'Expiration:</mat-label>
+                <input matInput formControlName="moisExpirationCarteCredit"  mask="90" required>
+                <mat-error *ngIf="formspaiements.get('moisExpirationCarteCredit')?.hasError('required')">Le Mois est requis</mat-error>
+                <mat-error *ngIf="formspaiements.get('moisExpirationCarteCredit')?.hasError('pattern')">Mois d'Expiration ne correspond pas au modèle</mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="itemAnneeExpirationCarteCredit">
+        <mat-form-field 
+                appearance="fill"  
+                color="primary"
+                floatLabel="always"
+                id="anneeExpirationCarteCredit" 
+                [tabIndex]="4">
+                <mat-label>Année d'Expiration:</mat-label>
+                <input matInput formControlName="anneeExpirationCarteCredit" mask="9999" required>
+                <mat-error *ngIf="formspaiements.get('anneeExpirationCarteCredit')?.hasError('required')">Année est requise</mat-error>
+                <mat-error *ngIf="formspaiements.get('anneeExpirationCarteCredit')?.hasError('pattern')">Année d'Expiration ne correspond pas au modèle</mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="itemCodeSecuriteCarteCredit">
+        <mat-form-field 
+                appearance="fill"  
+                color="primary"
+                floatLabel="always"
+                id="codeSecuriteCarteCredit" 
+                [tabIndex]="5">
+                <mat-label>CVS:</mat-label>
+                <input matInput formControlName="codeSecuriteCarteCredit" mask="000"  required>
+                <mat-error *ngIf="formspaiements.get('codeSecuriteCarteCredit')?.hasError('required')">Le Le code de sécurité est requis</mat-error>
+                <mat-error *ngIf="formspaiements.get('codeSecuriteCarteCredit')?.hasError('pattern')">Le code de sécurité d'Expiration ne correspond pas au modèle</mat-error>
+        </mat-form-field>
+
+    </div>
+
+    <div class="itemInformationsCarteCredit">
+        <div class="card">
+            <div class="card-body">
+                <p  style="color:rgb(250, 2, 2)">Frais d'Abonnement annuel:</p>
+                <p  style="color:rgb(25, 4, 119), background-color=beige">Vous serez facturé des frais d'abonnement "Vente Engros" {{entreprise}} d'un montant de  {{membre?.montantAdhesion}} USD,
+                exigibles apres approbation de votre adhésion. Ces frais seront prélevés le premier du mois mois suivant l'approbation. 
+                </p>
+            </div>
+            <div class="card-footer">
+                <h3 style="color:rgb(250, 2, 2)">Total paiement exigé aujourd'hui:{{ membre?.montantAdhesion }}$</h3>
+            </div>
+        </div>
+    </div>
+    
+    <!--div class="itemFooterPaiement">
+        <button mat-raised-button color="primary" type="submit" ><mat-icon>check</mat-icon>Valider</button>
+        <button mat-raised-button color="primary"  type="reset" (click)="onCancelFormPaiement()" > <mat-icon>undo</mat-icon>Initialiser</button> 
+     </div-->
+</div>
+  
+</form>

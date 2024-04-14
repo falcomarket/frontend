@@ -1,0 +1,163 @@
+<div class="validation_membre">
+    
+    <div class="validation_perso">
+        <mat-card >
+            <mat-card-header style="display: flex; justify-content: center;background-color: rgb(177, 184, 252);">
+              <mat-card-title style='font-size: 18px;color:rgb(6, 22, 248);'>RENSEIGNEMENTS PERSONNELLES</mat-card-title>
+            </mat-card-header>
+            <mat-card-content style="display:flex; flex-direction:column; background-color:beige;">
+                <mat-card class="identificationCode" style="display:flex; flex-direction:row;justify-content:space-around;align-items: center;background-color:beige;">
+                   
+                    
+                    <mat-card style="
+                            border-radius: 8px;
+                            width: 240px;
+                            height: 200px;
+                            padding: 0px;
+                            background-color: rgb(202, 200, 200);
+                            display: flex;
+                            justify-content: center;align-items: center">
+
+                            <mat-card style="
+                                    border-radius: 8px;
+                                    width: 200px;
+                                    height: 200px;
+                                    display: flex;
+                                    justify-content: center;">  
+                                    
+                                    <img *ngIf="capturedPhotoUrl" [src]="capturedPhotoUrl">
+                            </mat-card>
+                    </mat-card>
+                    <mat-card style="
+                                    border-radius: 8px;
+                                    width: 240px;
+                                    height: 200px;
+                                    display: flex;
+                                    padding: 0px;
+                                    justify-content: center;background-color:rgb(202, 200, 200);align-items: center">
+                                    <mat-card style="
+                                    border-radius: 8px;
+                                    width: 200px;
+                                    height: 200px;
+                                    display: flex;
+                                    justify-content: center;">  
+                                    <h3>Signature du membre:</h3>
+                                    <img [src]="signatureurl"> 
+                            </mat-card>
+                                   
+                    </mat-card>
+                </mat-card>
+              
+                <mat-card class="itemAffichage">
+                    <div class="itemBloc">
+                        <div><P style="font-size: 10px;text-transform:capitalize" >Nom:</P> {{ membre?.nom }}</div>
+                        <div><p style="font-size: 10px;text-transform:capitalize">Prénom:</p> {{ membre?.prenom }}</div>
+                        <div><P style="font-size: 10px;text-transform:capitalize" >date naissance:</P> {{ membre?.dateNaissance }}</div>
+                        <div><p style="font-size: 10px;text-transform:capitalize">Genre:</p> {{ membre?.genreMembre}}</div>
+                    </div>
+                </mat-card>
+                
+                <mat-card class="itemAffichage">
+                    <div class="itemBloc">
+                        <div style="text-transform:lowercase"><P style="font-size: 10px;text-transform:capitalize" >Adresse émail:</P> {{ membre?.email }}</div>
+                        <div><p style="font-size: 10px;text-transform:capitalize">Numéro Téléphone:</p>{{ membre?.numeroTelephone }}</div>
+                    </div>
+                </mat-card>
+                <mat-card class="itemAffichage">
+                    <div class="itemBloc">
+                        <div><P style="font-size: 10px;text-transform:capitalize" >Adresse Physique:</P> {{ membre?.adressePhysique }}</div>
+                        <div><p style="font-size: 10px;text-transform:capitalize">Ville:</p> {{ membre?.villeMembre }}</div>
+                        <div><P style="font-size: 10px;text-transform:capitalize" >Province:</P> {{ membre?.paysMembre }}</div>
+                        <div><p style="font-size: 10px;text-transform:capitalize">Code Postal:</p> {{ membre?.codePostalMembre }}</div>
+                    </div>
+                </mat-card>
+                <mat-card class="itemAffichage">
+                    <div class="itemBloc">
+                        <div><P style="font-size: 10px;text-transform:capitalize" >pièce justificatif :</P> {{ membre?.pieceIdentite }}</div>
+                        <div><p style="font-size: 10px;text-transform:capitalize">Numéro {{ membre?.pieceIdentite }}</p> {{ membre?.numPieceIdentite }}</div>
+                    </div>
+                    <div class="itemBloc">    
+                        <div><P style="font-size: 10px;text-transform:capitalize" >Date Délivrance:</P> {{ membre?.dateDelivrePiece }}</div>
+                        <div><p style="font-size: 10px;text-transform:capitalize">Date Expiration:</p> {{ membre?.dateExpirePiece }}</div>
+                    </div>
+                </mat-card>
+
+                <mat-card class="itemAffichage">
+                    <div class="itemBloc">
+                        <div style="font-size: 10px;text-transform:lowercase"><P style="font-size: 10px;text-transform:capitalize" >Facebook:</P> {{ membre?.compteFacebook }}</div>
+                        <div style="font-size: 10px;text-transform:lowercase"><p style="font-size: 10px;text-transform:capitalize" >Instagram:</p> {{ membre?.compteInstagram }}</div>
+                        <div style="font-size: 10px;text-transform:lowercase"><p style="font-size: 10px;text-transform:capitalize" >google:</p> {{ membre?.compteGoogle }}</div>
+                    </div>
+                </mat-card>
+
+                
+             </mat-card-content>
+            
+        </mat-card>
+    </div>
+
+    <div class="validation_adhesion">
+        <mat-card-header style="display: flex; justify-content: center;background-color: rgb(177, 184, 252);">
+            <mat-card-title style='font-size: 20px;color:rgb(6, 22, 248);'>ADHESION</mat-card-title>
+        </mat-card-header>
+        <mat-card-content style="display: flex; justify-content: left;background-color:beige;">
+            
+            <mat-card class="itemAffichage">
+                    <div class="itemBloc">
+                        <div><P style="font-size: 10px;text-transform:capitalize">Type adhésion:</P> {{ membre?.typeAdhesion }}</div>
+                        <div><P style="font-size: 10px;text-transform:capitalize">Code membre:</P> {{ membre?.codeMembre }}</div>
+                    </div>
+                    <div class="itemBloc">
+                        <div><p style="font-size: 10px;text-transform:capitalize">Frais annuel:</p> {{ membre?.montantAdhesion }} $</div>
+                    </div>
+                    <div class="itemBloc">
+                        <div><P style="font-size: 10px;text-transform:capitalize">date début:</P> {{ membre?.dateDebutAdhesion }}</div>
+                    </div>
+                    <div class="itemBloc">
+                        <div><p style="font-size: 10px;text-transform:capitalize">date fin:</p> {{ membre?.dateFinAdhesion}}</div>
+                    </div>
+                    <div class="itemBloc">
+                        <div><p style="font-size: 10px;text-transform:capitalize">satut adhésion:</p> {{ membre?.statutAdhesion}}</div>
+                    </div>
+            </mat-card>
+
+            
+           
+        </mat-card-content>
+    </div>
+
+    <div class="validation_paiement">
+        <mat-card-header style="display: flex; justify-content: center;background-color: rgb(177, 184, 252);">
+            <mat-card-title style='font-size: 20px;color:rgb(6, 22, 248);'>PAIEMENT</mat-card-title>
+          </mat-card-header>
+          <mat-card-content style="display: flex; justify-content: leftcenter;background-color:beige;">
+
+            <mat-card class="itemAffichage">
+                <div class="itemBloc">
+                    <div><P style="font-size: 10px;text-transform:capitalize">Nom Titulaire carte credit:</P> {{membre?.nomTitulaireCarteCredit}}</div>
+                </div>
+                <div class="itemBloc">
+                    <div><p style="font-size: 10px;text-transform:capitalize">Numero carte credit:</p> {{membre?.numeroCarteCredit}}</div>
+                </div>
+                <div class="itemBloc">
+                    <div><P style="font-size: 10px;text-transform:capitalize">Mois Expiartion:</P> {{membre?.moisExpirationCarteCredit}}</div>
+                </div>
+                <div class="itemBloc">
+                    <div><p style="font-size: 10px;text-transform:capitalize">Annee Expiration:</p> {{membre?.anneeExpirationCarteCredit}}</div>
+                </div>
+                <div class="itemBloc">
+                    <div><p style="font-size: 10px;text-transform:capitalize">Code securite:</p> {{membre?.codeSecuriteCarteCredit}}</div>
+                </div>
+           </mat-card>
+          </mat-card-content>
+    </div>
+    
+    
+    <!--div class="validation_footer">  
+          <button mat-raised-button color="primary" type="button"(click)="onSaveGlobal()" >Enregistrer</button>
+          <button mat-raised-button color="primary" type="button"(click)="onCorrigerSaveGlobal()" >Corriger</button>
+          <button mat-raised-button color="primary" type="button"(click)="openSignatureDialog()">Signature Membre</button>
+
+    </div-->
+
+</div>

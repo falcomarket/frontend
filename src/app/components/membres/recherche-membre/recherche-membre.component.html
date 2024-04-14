@@ -1,0 +1,147 @@
+<!-- membres.component.html -->
+<div class="table-container">
+
+    <!--input matInput placeholder="Rechercher" [(ngModel)]="searchTerm" (keyup)="search()"-->
+     
+    <div class="search-container">
+       
+     <input type="text" [(ngModel)]="searchTerm" placeholder="Recherche...">
+     <button (click)="search()">
+       <i class="fas fa-search"></i>
+       Rechercher</button>
+   
+     <label>
+       <input type="radio" name="operator" [(ngModel)]="searchOperator" value="AND"> ET
+     </label>
+     <label>
+       <input type="radio" name="operator" [(ngModel)]="searchOperator" value="OR"> OU
+     </label>
+   </div>
+   
+   
+   <table mat-table [dataSource]="dataSource">
+ 
+     <!-- Actions (par exemple, bouton pour voir les détails) -->
+     <ng-container matColumnDef="action1">
+       <th mat-header-cell *matHeaderCellDef></th>
+       <td mat-cell *matCellDef="let membre">
+         <button mat-icon-button matTooltip="Factures" >
+           <mat-icon >subscriptions</mat-icon></button>
+       </td>
+     </ng-container>
+ 
+     <ng-container matColumnDef="action2">
+       <th mat-header-cell *matHeaderCellDef></th>
+       <td mat-cell *matCellDef="let membre">
+          <button mat-icon-button matTooltip="Produits" >
+           <mat-icon >check_circle</mat-icon></button>
+        </td>
+     </ng-container>
+ 
+     <ng-container matColumnDef="action3">
+       <th mat-header-cell *matHeaderCellDef></th>
+       <td mat-cell *matCellDef="let membre">
+         <button mat-icon-button matTooltip="Periode" > 
+           <mat-icon >payment</mat-icon></button>
+       </td>  
+     </ng-container>
+ 
+     <ng-container matColumnDef="action4">
+       <th mat-header-cell *matHeaderCellDef></th>
+       <td mat-cell *matCellDef="let membre">
+         <button mat-icon-button matTooltip="Vendeur" >
+           <mat-icon >notifications</mat-icon></button>
+       </td>
+     </ng-container>
+ 
+     <ng-container matColumnDef="action5">
+       <th mat-header-cell *matHeaderCellDef></th>
+       <td mat-cell *matCellDef="let membre">
+         <button mat-icon-button matTooltip="Dashboard" >
+           <mat-icon >comment</mat-icon></button>
+       </td>
+     </ng-container>
+ 
+     <ng-container matColumnDef="id">
+       <th mat-header-cell *matHeaderCellDef (click)="sortBy('id')">
+         Id
+         <span *ngIf="sortField === 'id'">
+           <span *ngIf="sortDirection === 'asc'">↑</span>
+           <span *ngIf="sortDirection === 'desc'">↓</span>
+         </span>
+       </th>
+       <td mat-cell *matCellDef="let membre">{{ membre.id }}</td>
+     </ng-container>
+   
+   
+       <ng-container matColumnDef="nom">
+         <th mat-header-cell *matHeaderCellDef (click)="sortBy('nom')">
+           Nom
+           <span *ngIf="sortField === 'nom'">
+             <span *ngIf="sortDirection === 'asc'">↑</span>
+             <span *ngIf="sortDirection === 'desc'">↓</span>
+           </span>
+         </th>
+         <td mat-cell *matCellDef="let membre">{{ membre.nom }}</td>
+       </ng-container>
+       
+       <ng-container matColumnDef="prenom">
+         <th mat-header-cell *matHeaderCellDef (click)="sortBy('prenom')">
+           Prenom
+           <span *ngIf="sortField === 'prenom'">
+             <span *ngIf="sortDirection === 'asc'">↑</span>
+             <span *ngIf="sortDirection === 'desc'">↓</span>
+           </span>
+         </th>
+         <td mat-cell *matCellDef="let membre">{{ membre.prenom }}</td>
+       </ng-container>
+   
+       <ng-container matColumnDef="datenaissance">
+         <th mat-header-cell *matHeaderCellDef (click)="sortBy('datenaissance')">
+           Naissance
+           <span *ngIf="sortField === 'datenaissance'">
+               <span *ngIf="sortDirection === 'asc'">↑</span>
+               <span *ngIf="sortDirection === 'desc'">↓</span>
+           </span>
+           
+       </th>
+         <td mat-cell *matCellDef="let membre">{{ membre.datenaissance }}</td>
+       </ng-container>
+   
+       <ng-container matColumnDef="sexe">
+         <th mat-header-cell *matHeaderCellDef>Genre</th>
+         <td mat-cell *matCellDef="let membre">{{ membre.sexe}}</td>
+       </ng-container>
+       
+       <ng-container matColumnDef="adresse">
+         <th mat-header-cell *matHeaderCellDef>Domicile</th>
+         <td mat-cell *matCellDef="let membre">{{ membre.adresse}}</td>
+       </ng-container>
+   
+       <ng-container matColumnDef="email">
+         <th mat-header-cell *matHeaderCellDef>Email</th>
+         <td mat-cell *matCellDef="let membre">{{ membre.email}}</td>
+       </ng-container>
+       
+       <ng-container matColumnDef="tel">
+         <th mat-header-cell *matHeaderCellDef>Telephone</th>
+         <td mat-cell *matCellDef="let membre">{{ membre.tel}}</td>
+       </ng-container>
+   
+       
+ 
+       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+   
+     </table>
+   
+    
+     <mat-paginator #paginator
+         [length]="totalElements"
+         [pageSize]="pageSize"
+         [pageSizeOptions]="pageSizeOptions" (page)="OnPageChange($event)"
+         showFirstLastButtons="true">
+     </mat-paginator>
+     
+ </div>

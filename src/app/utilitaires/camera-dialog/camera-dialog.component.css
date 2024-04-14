@@ -1,0 +1,22 @@
+/* Style pour le conteneur du dialogue */
+mat-dialog-content {
+  display: flex;
+  flex-direction: column;
+  align-items:normal;
+  width:100%;
+  height:100%;
+  background-color: #f0f0f0;
+}
+mat-dialog-actions {
+  display: flex;
+  justify-content:space-between;
+  margin-top: 16px;
+  width:100%;
+  background-color: #f0f0f0;
+}
+
+mat-dialog-actions button {
+  margin: 0 8px;
+  background-color:rgb(3, 3, 29);
+  color:white;
+}
