@@ -20,7 +20,7 @@ import { EditMembreComponent } from './components/membres/edit-membre/edit-membr
 
 export const routes: Routes = [
   
-  { path: '', component: StocksComponent},
+  { path: '', component: NouveauMembreComponent},
   { path: 'transaction_vente', component: EnregistrementComponent},
   { path: 'portail_produits', component:  ListeComponent},
   { path: 'ventes_clients', component: MembresComponent},

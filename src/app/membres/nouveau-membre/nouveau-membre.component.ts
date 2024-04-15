@@ -17,7 +17,6 @@ import { MY_DATE_FORMATS } from './../../utilitaires/mat-date-picker/format-date
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import html2canvas from 'html2canvas';
-import { FormGroup } from '@angular/forms';  
 
 import { NgxBarcode6Module } from 'ngx-barcode6';
 import { Codebar6MembreService } from './../../utilitaires/codebarmembre/codebar6.service';
@@ -35,6 +34,7 @@ import { MembreDTO,ChoixPlanAdhesion,MontantPlanAdhesion} from './../../interfac
 import { ErrorDialogComponent } from './../../utilitaires/error-dialog/error-dialog.component';
 import { SignatureDialogueComponent } from './../../utilitaires/signature-dialogue/signature-dialogue.component';
 import { SignatureDialogueService } from './../../utilitaires/signature-dialogue/signature-dialogue.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 registerLocaleData(localeFr);
 
@@ -82,6 +82,7 @@ export class NouveauMembreComponent implements AfterViewInit,OnInit {
   formsPaiements!: FormGroup;
 
   
+
   choixPlanAdhesionValues = Object.values(ChoixPlanAdhesion);
   choixMontantAdhesionValues = Object.values(MontantPlanAdhesion);
 
@@ -98,11 +99,11 @@ export class NouveauMembreComponent implements AfterViewInit,OnInit {
 
 
 tab1Disabled: boolean = false;
-tab2Disabled: boolean = false;
-tab3Disabled: boolean = false;
-tab4Disabled: boolean = false;
-tab5Disabled: boolean = false;
-tab6Disabled: boolean = false;
+tab2Disabled: boolean = true;
+tab3Disabled: boolean = true;
+tab4Disabled: boolean = true;
+tab5Disabled: boolean = true;
+tab6Disabled: boolean = true;
 
 capturedPhotoUrl: string | undefined;
 signatureurl: string | undefined;
@@ -111,7 +112,7 @@ signatureurl: string | undefined;
   
 nmembre:MembreDTO|null=null ; 
 membre:MembreDTO|null=null ;
-  constructor(private membreService: DataService,
+  constructor(private membreService: DataService,private formBuilder: FormBuilder,
               private cameraDialogService:CameraDialogService,
               private signatureDialogueService:SignatureDialogueService,
               public codebar6MembreService: Codebar6MembreService,    
@@ -145,7 +146,8 @@ ngOnInit(): void {
 
     }
 
-    onSubmitFormPerso() {
+    
+    onSubmitFormPerso():void {
       const formData = this.formsPerso.value;
   
       
@@ -168,9 +170,7 @@ ngOnInit(): void {
       }
     }   
     
-    onSubmitFormAdhesison() {
-      console.log('log1',this.formsadhesion)
-
+    onSubmitFormAdhesison():void {
       if (this.formsAdhesion.valid) {
         this.saveMembre().then(() => {
          this.tab2Disabled = true;
@@ -184,7 +184,7 @@ ngOnInit(): void {
      }
     
     }   
-    onSubmitFormPaiement() {
+    onSubmitFormPaiement():void {
     if (this.formsPaiements.valid) {
 
       this.saveMembre().then(() => {
@@ -203,8 +203,7 @@ ngOnInit(): void {
     
   }
   onCancelFormPerso():void {
-    //this.formspersonnel.reset();    
-    this.capturedPhotoUrl=''; 
+    this.formsPersoComponent.initFormPerso();   
   }
   onCancelFormContrat():void{   
     this.typeAdhesion='';
@@ -259,7 +258,7 @@ ngOnInit(): void {
         numPieceIdentite:formData1.numPieceIdentite.toUpperCase(),
         dateDelivrePiece:this.formatDate(formData1.dateDelivrePiece),
         dateExpirePiece:this.formatDate(formData1.dateExpirePiece),
-        accepterConfidentialite:this.accepterConfidentialite,
+        accepterConfidentialite:formData1.accepterConfidentialite,
         
         typeAdhesion:formData2.typeAdhesion.toUpperCase(),
         montantAdhesion:formData2.montantAdhesion,
